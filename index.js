@@ -65,13 +65,13 @@ function strToTitle(str) {
 
 function strToTime(str) {
     const arr = str.split(' ');
-    const mons = ['января', 'февраля', 'марта', 'апреля' , 'мая', 'сентября', 'октября', 'ноября', 'декабря']
+    const mons = ['января', 'февраля', 'марта', 'апреля' , 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
     const d = arr[1].trim();
     const t = arr[3];
     const im = mons.indexOf(arr[2].trim().slice(0, -1));
     const dd = new Date();
     const y = (dd.getMonth() <= im) ? dd.getFullYear() : dd.getFullYear() + 1;
-    return `${d}.${(im+1).toString().padStart(2, '0')}.${y} ${t}`;
+    return `${y}-${(im+1).toString().padStart(2, '0')}-${d.padStart(2, '0')} ${t}`;
 }
 
 async function processShow(page, showEle) {
